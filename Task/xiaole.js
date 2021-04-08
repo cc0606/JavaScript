@@ -1,9 +1,9 @@
 /* ziye 
 
-github地址 https://github.com/ziye11
+github地址 https://github.com/ziye888
 TG频道地址  https://t.me/ziyescript
 TG交流群   https://t.me/joinchat/AAAAAE7XHm-q1-7Np-tF3g
-boxjs链接  https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/ziye.boxjs.json
+boxjs链接  https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/ziye.boxjs.json
 
 转载请备注个名字，谢谢
 
@@ -24,7 +24,7 @@ boxjs链接  https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/ziye.
 多账号换行
 
 
-第一步 微信扫码 https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/xiaole.png  获取授权
+第一步 微信扫码 https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/xiaole.png  获取授权
 
 第二步 
 开代理软件，添加主机名 重写 ，然后点 我的 获取url header
@@ -42,17 +42,17 @@ hostname=minapp.xqrobot.net,
 
 ############## 圈x
 #小乐获取ck
-https:\/\/minapp\.xqrobot\.net\/* url script-request-header https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/xiaole.js
+https:\/\/minapp\.xqrobot\.net\/* url script-request-header https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/xiaole.js
 
 ############## loon
 
 #小乐获取ck
-http-request https:\/\/minapp\.xqrobot\.net\/* script-path=https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/xiaole.js, requires-header=true, tag=小乐获取ck
+http-request https:\/\/minapp\.xqrobot\.net\/* script-path=https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/xiaole.js, requires-header=true, tag=小乐获取ck
 
 ############## surge
 
 #小乐获取ck
-小乐获取ck = type=http-request,pattern=https:\/\/minapp\.xqrobot\.net\/*,script-path=https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/xiaole.js, 
+小乐获取ck = type=http-request,pattern=https:\/\/minapp\.xqrobot\.net\/*,script-path=https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/xiaole.js, 
 
 */
 const $ = Env("小乐");
@@ -140,13 +140,13 @@ function GetCookie() {
     if ($request && $request.url.indexOf("/user.php?mod=index&") >= 0) {
         const xiaoleurlVal = $request.url;
         const xiaoleheaderVal = JSON.stringify($request.headers);
-        if (xiaoleurlVal) {
+        if (xiaoleheaderVal) {
             cookie()
 
             function cookie() {
                 bodys = $.getdata('xiaoleurl' + $.idx);
                  if (bodys) {
-                    if (bodys.indexOf(xiaoleurlVal) >= 0) {
+                    if (bodys.indexOf(xiaoleheaderVal) >= 0) {
                         $.log(
                             `[${$.name + $.idx}] xiaoleurlVal已存在✅: xiaoleurlVal: ${xiaoleurlVal}`
                         );
@@ -305,8 +305,8 @@ async function all() {
         $.msg(
             $.name,
             '提示：⚠️请点击前往获取cookie\n',
-            'https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/xiaole.png', {
-                "open-url": "https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/xiaole.png"
+            'https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/xiaole.png', {
+                "open-url": "https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/xiaole.png"
             }
         );
         return;
@@ -384,7 +384,7 @@ function coin(timeout = 0) {
                 try {
                     if (logs) $.log(`${O}, 账户信息🚩: ${data}`);
                     $.coin = JSON.parse(data);
-                    if ($.coin && $.coin.info && $.coin.info.user_name) {
+                    if ($.coin && $.coin.info && $.coin.info.user_money) {
                         $.message += `\n${O}`;
                         $.message += `\n========== 【${$.coin.info.user_name}】 ==========\n` +
                             '【现金余额】：' + $.coin.info.user_money + '元' + '\n' +
